@@ -1,0 +1,18 @@
+#Spring Properties
+spring:
+  application:
+    name: accounts-service
+
+#Discovery Server Access
+eureka:
+  client:
+  metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+#HTTP Server
+server:
+  port: 8081  # HTTP (Tomcat) port
+  
