@@ -6,10 +6,11 @@ spring:
 #Discovery Server Access
 eureka:
   client:
-  metadataMap:
-      instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-  serviceUrl:
+    serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 
 
 #HTTP Server
