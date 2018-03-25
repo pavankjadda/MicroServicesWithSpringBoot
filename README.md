@@ -1,6 +1,6 @@
-# MicroServices from scratch with SpringBoot
+# Java MicroServices from scratch with SpringBoot
 
-MicroServices from scratch with SpringBoot, Spring Cloud, Netflix Eureka, Netflix Zuul and Netflix Ribbon. 
+Java MicroServices from scratch with SpringBoot, Spring Cloud, Netflix Eureka, Netflix Zuul and Netflix Ribbon. 
 1. Spring Boot
 2. Spring Cloud
 3. Netflix Eureka
