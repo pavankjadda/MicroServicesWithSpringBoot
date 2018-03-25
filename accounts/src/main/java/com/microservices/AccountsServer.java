@@ -10,7 +10,7 @@ public class AccountsServer
 {
 	public static void main(String[] args)
 	{
-		System.setProperty("system.config.name", "accounts-server");
+		System.setProperty("system.config.name", "application");
 		SpringApplication.run(AccountsServer.class, args);
 	}
 }

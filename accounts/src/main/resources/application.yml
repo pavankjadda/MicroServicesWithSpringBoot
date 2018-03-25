@@ -1,10 +1,20 @@
-# We don not need this file anymore. Spring boot reads database configuration data only (don't know why) from application.yml or application.properties
-
 #Spring Properties
 spring:
   application:
     name: accounts-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/microservicesdemo
+    username: root
+    password: jadda007
+    driver-class-name: com.mysql.jdbc.Driver
 
+#HTTP Server
+server:
+  port: 8081  # HTTP (Tomcat) port
+  
 #Discovery Server Access
 eureka:
   client:
@@ -15,7 +25,5 @@ eureka:
     instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 
 
-#HTTP Server
-server:
-  port: 8081  # HTTP (Tomcat) port
+
   
