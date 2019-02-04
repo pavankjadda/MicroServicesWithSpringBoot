@@ -1,3 +1,7 @@
+
+server:
+  port: 8761
+
 eureka:
   instance:
     hostname: localhost
@@ -6,7 +10,8 @@ eureka:
     fetchRegistry: false
     server:
       waitTimeInMsWhenSyncEmpty: 0
-    
-server:
-  port: 8761
 
+
+spring:
+  config:
+    name: registration-server

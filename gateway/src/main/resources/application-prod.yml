@@ -4,7 +4,8 @@
 zuul:
   routes:
     accounts-api:
-      url: http://localhost:8081
+      path: /accounts/*
+      url: http://localhost:8081/accounts/
  
 #Ribbon is auto integrated with Zuul and for this exercise we are not using that:
 ribbon:
@@ -17,5 +18,7 @@ server:
 
 # Spring Application Settings
 spring:
+  application:
+    name: Gateway
   main:
     allow-bean-definition-overriding: true
