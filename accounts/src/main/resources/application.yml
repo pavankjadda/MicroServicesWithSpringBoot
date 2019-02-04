@@ -8,8 +8,10 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/microservicesdemo
     username: root
-    password: jadda007
-    driver-class-name: com.mysql.jdbc.Driver
+    password: bcmc1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  main:
+    allow-bean-definition-overriding: true
 
 #HTTP Server
 server:
@@ -26,4 +28,3 @@ eureka:
 
 
 
-  
