@@ -12,17 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AccountsController
 {
-	protected Logger logger = Logger.getLogger(AccountsController.class.getName());
+	private Logger logger = Logger.getLogger(AccountsController.class.getName());
 	
+	private final AccountRepository accountRepository;
+
 	@Autowired
-	protected AccountRepository accountRepository;
-	
-	
+	public AccountsController(AccountRepository accountRepository)
+	{
+		this.accountRepository = accountRepository;
+	}
+
+
 	@RequestMapping("/accounts/{accountNumber}")
 	@ResponseBody
-	public Account byNumber(@PathVariable("accountNumber") String  accountNumber)
+	public Account byNumber(@PathVariable("accountNumber") Long  accountNumber)
 	{
-		Account account=accountRepository.findByNumber(accountNumber);
+		Account account=accountRepository.findAccountByNumber(accountNumber);
 		logger.info("accounts-service byNumber() found: " + account);
 		return account;
 	}
@@ -31,7 +36,7 @@ public class AccountsController
 	@ResponseBody
 	public List<Account> byOwner(@PathVariable("name") String name)
 	{
-		List<Account> accounts=accountRepository.findByOwnerContainingIgnoreCase(name);
+		List<Account> accounts=accountRepository.findAccountByOwner(name);
 		logger.info("accounts-service byOwner() found: " + accounts);
 		return accounts;
 	}

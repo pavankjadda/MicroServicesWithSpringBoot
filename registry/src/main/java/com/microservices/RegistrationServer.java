@@ -11,7 +11,7 @@ public class RegistrationServer
 	public static void main(String[] args)
 	{
 		System.setProperty("spring.config.name", "registration-server");
-		SpringApplication.run(RegistrationServer.class, args);
+		SpringApplication.run(RegistrationServer.class,args);
 	}
 }
 

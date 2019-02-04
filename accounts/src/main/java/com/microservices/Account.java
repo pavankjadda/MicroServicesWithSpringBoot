@@ -1,118 +1,33 @@
 package com.microservices;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "T_ACCOUNT")
+@Data
+@Table(name = "account")
 public class Account implements Serializable
 {
 
 	private static final long serialVersionUID = 1L;
 
-	public static Long nextId = 0L;
-
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected Long id;
 
-	protected String number;
+	@Column(name = "number")
+	protected Long number;
 
-	@Column(name = "name")
+	@Column(name = "owner")
 	protected String owner;
 
-	protected BigDecimal balance;
+	@Column(name = "balance")
+	protected Double balance;
 
-	/**
-	 * This is a very simple, and non-scalable solution to generating unique
-	 * ids. Not recommended for a real application. Consider using the
-	 * <tt>@GeneratedValue</tt> annotation and a sequence to generate ids.
-	 * 
-	 * @return The next available id.
-	 */
-	protected static Long getNextId()
-	{
-		synchronized (nextId)
-			{
-				return nextId++;
-			}
-	}
 
-	/**
-	 * Default constructor for JPA only.
-	 */
-	protected Account()
-	{
-		balance = BigDecimal.ZERO;
-	}
-
-	public Account(String number, String owner)
-	{
-		id = getNextId();
-		this.number = number;
-		this.owner = owner;
-		balance = BigDecimal.ZERO;
-	}
-
-	public long getId()
-	{
-		return id;
-	}
-
-	/**
-	 * Set JPA id - for testing and JPA only. Not intended for normal use.
-	 * 
-	 * @param id
-	 *            The new id.
-	 */
-	protected void setId(long id)
-	{
-		this.id = id;
-	}
-
-	public String getNumber()
-	{
-		return number;
-	}
-
-	protected void setNumber(String accountNumber)
-	{
-		this.number = accountNumber;
-	}
-
-	public String getOwner()
-	{
-		return owner;
-	}
-
-	protected void setOwner(String owner)
-	{
-		this.owner = owner;
-	}
-
-	public BigDecimal getBalance()
-	{
-		return balance.setScale(2, BigDecimal.ROUND_HALF_EVEN);
-	}
-
-	public void withdraw(BigDecimal amount)
-	{
-		balance.subtract(amount);
-	}
-
-	public void deposit(BigDecimal amount)
-	{
-		balance.add(amount);
-	}
-
-	@Override
-	public String toString()
-	{
-		return number + " [" + owner + "]: $" + balance;
-	}
 
 }
