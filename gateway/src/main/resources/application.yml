@@ -1,3 +1,5 @@
+
+
 #Zuul routes: Here for /accounts path, we are routing to localhost:8081 with extra path after that:
 zuul:
   routes:
@@ -12,3 +14,8 @@ ribbon:
 #Will start the gateway server @8080
 server:
   port: 8080
+
+# Spring Application Settings
+spring:
+  main:
+    allow-bean-definition-overriding: true
