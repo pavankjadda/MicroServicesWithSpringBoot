@@ -10,6 +10,7 @@ public class AccountsApplication
 {
 	public static void main(String[] args)
 	{
+		//System.setProperty("spring.config.name", "accounts-service");
 		SpringApplication.run(AccountsApplication.class, args);
 	}
 }
