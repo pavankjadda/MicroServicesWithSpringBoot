@@ -12,7 +12,7 @@ Java MicroServices from scratch with SpringBoot, Spring Cloud, Netflix Eureka, N
 7. You should also see accounts application under [registry server](http://localhost:8761/) with name `ACCOUNTS-SERVICE`
 8. Now go to resource folder in `gaeway` folder, update configuration if needed. Run `GatewayApplication` to start the gateway server for microservices. It should be available on [http://localhost:8080](http://localhost:8080)
 9. From this point onwards, you can access microservices data through Gateway and restrict direct access to Individual service
-
+   [http://192.168.1.172:8080/accounts/{accountNumber}](http://192.168.1.172:8080/accounts/{accountNumber})
 ### Technologies
 
 1. Spring Boot
